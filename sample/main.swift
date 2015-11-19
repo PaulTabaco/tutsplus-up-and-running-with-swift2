@@ -1,3 +1,119 @@
+//0603  Classes and Structures
+/* Помимо основных типов, можно создавать свои
+собственные 
+*/
+class myClass {
+    var prop1 = 5
+    let prop2 = 10
+    init () {            // Функция конструктор - НЕОБЯЗАТЕЛЬНА
+        prop1 = 20
+    }
+    var prop3: Int {       // Computed property - Вычисляемое свойство
+        get {
+            return prop1 * prop2
+        }
+        set (param) {      // Принимает значение в класс
+            prop1 = param
+        }
+    }
+
+    func someMethod() -> Int {
+        return 123
+}
+    
+}
+
+var myClassInstance = myClass() /* скобки для инициализации экземпляра
+                                вернее запуска фунции-инициализатора, если она
+                                есть*/
+
+//myClassInstance.prop3 = 22   // Передаем значение prop3, которое устанавливает prop2
+print (myClassInstance.prop3) // А тут смотрим, что вышло после умножения
+
+
+
+/*
+// Enumeration
+enum myEnum {
+    case enum1
+    case enum2
+}
+myEnum.enum1
+
+enum direction {
+    case North
+    case West, East
+    case South
+}
+direction.East
+var dir1 = direction.East
+dir1 = .South
+
+var dir2: direction
+
+dir2 = .West
+
+switch dir2 {
+case .North:
+    print("You are going North")
+case .West:
+    print("You are going West")
+default:
+    print("Some were")
+}
+// ----------------------
+enum Identifier {
+    case Number (Int, String, Bool)
+    case Codename (String)
+}
+
+var id = Identifier.Number(555, "V", true)
+var name = Identifier.Codename("Brown")
+//id = Identifier.Codename("Brown")
+
+switch id {
+    case .Number (let n):
+        var temp = n.0
+        print("Eployee number is \(temp)")
+        print("Eployee full-number is \(n)")
+    case .Codename (let c):
+        print("Eployee Codename is \(c)")
+}
+
+// ----------------------------
+enum Direction: String {
+    case North = "1"
+    case South
+    case East
+    case West
+}
+
+print(Direction.North.rawValue) // .rawValue
+*/
+
+/*
+// FizzBuzz
+func fizzbuzz (startingInt start: Int, endingInt end: Int) {
+    for i in start...end {
+        let mods = (i % 3, i % 5)
+        print ( "test \(i) - i%3 - \(i%3) and i%5 - \(i%5) ")
+    
+        switch mods {
+        case (0, 0):
+            print("fizzbuzz")
+        case (0, _):
+            print("fizz")
+        case (_, 0):
+            print("buzz")
+        default:
+            print("\(i)")
+        }
+    }
+}
+
+fizzbuzz(startingInt: 0, endingInt: 10)
+*/
+/*
 // Замыкания (лямда выражения)
 // - - - - - - - - - - - - - - - - - - - -
 func myFunction (name: String) ->String {
@@ -8,7 +124,7 @@ func inputFunction (f: (String) ->String, input: String) {
         f(input)
 }
 // - - - - - - - - - - - - - - - - - - - -
-// Вскючения
+//
 var names = ["Vasya", "Petya", "Oleg", "Nina", "Zina"]
 func order (first:String, second:String)->Bool {
     return first < second
@@ -23,7 +139,7 @@ var sorted5 = names.sort( { $0 < $1 } )
 print (sorted)
 print (sorted2)
 print (sorted5)
-
+*/
 
 /*
 // Function Type
