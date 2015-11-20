@@ -1,12 +1,45 @@
 //0603  Classes and Structures
-/* Помимо основных типов, можно создавать свои
-собственные 
+/* Разница между классом и стуктурой в способе передачи
+    Структура - передается по значению (создается копия)
+    Класс - передается по ссылке (создается ссылка на класс)
 */
+
+// Struct
+struct myClass {
+    var prop1 = 5
+    let prop2 = 10
+    init (p1:Int) {             // Функция инициализации - НЕОБЯЗАТЕЛЬНА
+        prop1 = p1
+    }
+    var prop3: Int {       // Computed property - Вычисляемое свойство
+        get {
+            return prop1 * prop2
+        }
+        set (param) {      // Принимает значение в класс
+            prop1 = param
+        }
+    }
+    
+    func someMethod() -> Int {
+        return 123
+    }
+    
+}
+
+var myClassInstance = myClass(p1:300) /* скобки для инициализации экземпляра
+вернее запуска фунции-инициализатора, если она
+есть*/
+
+//myClassInstance.prop3 = 22   // Передаем значение prop3, которое устанавливает prop2
+print (myClassInstance.prop3) // А тут смотрим, что вышло после умножения
+
+/*
+// Class
 class myClass {
     var prop1 = 5
     let prop2 = 10
-    init () {            // Функция конструктор - НЕОБЯЗАТЕЛЬНА
-        prop1 = 20
+    init (p1:Int) {             // Функция инициализации - НЕОБЯЗАТЕЛЬНА
+        prop1 = p1
     }
     var prop3: Int {       // Computed property - Вычисляемое свойство
         get {
@@ -23,13 +56,13 @@ class myClass {
     
 }
 
-var myClassInstance = myClass() /* скобки для инициализации экземпляра
+var myClassInstance = myClass(p1:300) /* скобки для инициализации экземпляра
                                 вернее запуска фунции-инициализатора, если она
                                 есть*/
 
 //myClassInstance.prop3 = 22   // Передаем значение prop3, которое устанавливает prop2
-print (myClassInstance.prop3) // А тут смотрим, что вышло после умножения
-
+print (myClassInstance.prop3) // А тут смотрим, что вышло после умножения
+*/
 
 
 /*
