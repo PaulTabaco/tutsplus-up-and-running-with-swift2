@@ -1,4 +1,62 @@
-//0603  Classes and Structures
+//0605 Protocols (Interfaces)
+
+protocol Identifiable {
+    var identifier: Int { get set}
+    
+    func validate () ->Bool
+    
+} // end protocol Identifiable
+
+
+class Employee: Identifiable {
+    var identifier: Int
+    
+    init (identifier: Int) {
+        self.identifier = identifier
+    }
+
+    func validate() -> Bool {
+        return self.identifier > 100
+    }
+}
+
+class Manager: Identifiable {
+    var identifier: Int
+    
+    init (identifier: Int) {
+        self.identifier = identifier
+    }
+    
+    func validate() -> Bool {
+        return self.identifier < 100
+    }
+}
+
+func validatePerson (person:Identifiable) ->Bool{
+    return person.validate()
+}
+
+var emp = Employee(identifier: 50)
+var manager = Manager(identifier: 50)
+print (validatePerson(emp))
+print(validatePerson(manager))
+
+
+/*
+//0604 Classes vs Structures
+// Inheritance
+class person {
+    var firstname = ""
+    var lastname = ""
+}
+
+class employee: person {
+    var id: Int = 0
+}
+var emp = employee()
+emp.id = 12
+print(emp.id)
+
 /* Разница между классом и стуктурой в способе передачи
     Структура - передается по значению (создается копия)
     Класс - передается по ссылке (создается ссылка на класс)
@@ -10,6 +68,7 @@ struct myClass {
     let prop2 = 10
     init (p1:Int) {             // Функция инициализации - НЕОБЯЗАТЕЛЬНА
         prop1 = p1
+        
     }
     var prop3: Int {       // Computed property - Вычисляемое свойство
         get {
@@ -33,7 +92,11 @@ var myClassInstance = myClass(p1:300) /* скобки для инициализ�
 //myClassInstance.prop3 = 22   // Передаем значение prop3, которое устанавливает prop2
 print (myClassInstance.prop3) // А тут смотрим, что вышло после умножения
 
+*/
+
 /*
+//0603  Classes and Structures
+
 // Class
 class myClass {
     var prop1 = 5
