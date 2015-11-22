@@ -1,3 +1,19 @@
+// 0606 Extention 
+  /* - Way to add functionality to existing types (classes, structs, enum, protocols, Int ... ) */
+extension Int {
+    var Pasha: Int {
+        return self * 2
+    }
+}
+
+var myInt = 5
+var newValue = myInt.Pasha
+print (newValue)
+
+
+
+
+/*
 //0605 Protocols (Interfaces)
 
 protocol Identifiable {
@@ -40,7 +56,7 @@ var emp = Employee(identifier: 50)
 var manager = Manager(identifier: 50)
 print (validatePerson(emp))
 print(validatePerson(manager))
-
+*/
 
 /*
 //0604 Classes vs Structures
