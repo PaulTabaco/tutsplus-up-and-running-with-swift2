@@ -1,15 +1,43 @@
-// 0606 Extention 
+// 0607 ToDo List 
+enum Status {
+    case Open
+    case InProgress
+    case Closed
+}
+struct Todo {
+    var name: String
+    var status = Status.Open
+    
+    init (todoName: String) {
+        name = todoName
+        
+    }
+}
+
+/*
+// 0606 Extention
   /* - Way to add functionality to existing types (classes, structs, enum, protocols, Int ... ) */
 extension Int {
     var Pasha: Int {
         return self * 2
     }
+    init (initValue: Int) {
+        self = initValue * 10
+    }
+    func sustruct5 () ->Int {
+        return self - 5
+    }
 }
 
-var myInt = 5
-var newValue = myInt.Pasha
-print (newValue)
+var myInt: Int = 7
+print(myInt.Pasha)
 
+var newValue = Int(initValue: 12)
+print (newValue.Pasha)
+
+myInt = myInt.sustruct5()
+print(myInt)
+*/
 
 
 
