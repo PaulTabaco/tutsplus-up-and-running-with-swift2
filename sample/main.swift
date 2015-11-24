@@ -1,18 +1,55 @@
-// 0607 ToDo List 
+/*
+// 0607 ToDo List
+
 enum Status {
     case Open
     case InProgress
     case Closed
 }
+
 struct Todo {
     var name: String
     var status = Status.Open
     
     init (todoName: String) {
-        name = todoName
+        name = todoName 
         
     }
 }
+
+class TodoManager  {
+    var todos: [Todo] = []
+    func add(todo: Todo) {
+        todos.append(todo)
+    }
+    func add(name:String) {
+        let todo = Todo(todoName: name)
+        todos.append(todo)
+    }
+    func changeStatus(todo: Todo, status: Status){
+        guard let index = todos.indexOf({$0.name == todo.name}) else {return}
+        todos[index].status = status
+    }
+    func showOpen () {
+        print("")
+        print("=====================Open ToDos===================")
+        
+        for todo in todos where todo.status == Status.Open {
+            print (todo.name)
+        }
+    }
+}
+
+var bed = Todo(todoName: "Пора спать")
+var shoping = Todo(todoName: "Субботний рынок")
+var manager = TodoManager()
+manager.add(bed)
+manager.add(shoping)
+manager.showOpen()
+manager.changeStatus(bed, status: Status.Closed)
+manager.showOpen()
+
+*/
 
 /*
 // 0606 Extention
